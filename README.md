@@ -1,3 +1,6 @@
+<p align="center">
+  <img width="300" height="300" src="img/logo.png" alt="Logo">
+</p>
 <h1 align="center">Py-HTML</h1>
 <p align="center">
   Using HTML as GUI & Python as Backend
@@ -5,7 +8,7 @@
 <br><br>
 Example GUI Hello World Application Made Using This Technique
 <p align="left">
-  <img src="img/HelloWorldAppScreenshot.png" alt="C">
+  <img src="img/HelloWorldAppScreenshot.png" alt="Screenshot">
 </p>
 
 <br>
