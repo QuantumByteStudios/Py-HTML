@@ -1,4 +1,5 @@
 # importing required libraries
+from pydoc import importfile
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
@@ -6,13 +7,18 @@ from PyQt5.QtWebEngineWidgets import *
 from PyQt5.QtPrintSupport import *
 import os
 import sys
+import applicationUI
 
 # Global Variables
 appName = "Hello World Application"
-path = os.path.abspath("Py-HTML/src/main.html")
+guiFileName = "main"
+path = os.path.abspath(f"Py-HTML/src/{guiFileName}.html")
 path = path.replace('\\', '/')
-filePath = "file:///"+path
-print(f"Located GUI File at: {filePath}")
+fileName = path
+filePathForEngine = "file:///"+path
+print(f"Located GUI File at: {filePathForEngine}")
+# print(applicationUI.mainUI)
+
 
 # creating main window class
 
@@ -21,13 +27,19 @@ class MainWindow(QMainWindow):
 
     # constructor
     def __init__(self, *args, **kwargs):
+
+        f = open(fileName, 'w')
+        # Create GUI File
+        f.write(applicationUI.mainUI)
+        f.close()
+
         super(MainWindow, self).__init__(*args, **kwargs)
 
         # creating a QWebEngineView
         self.thisApplication = QWebEngineView()
 
         # Set Initial Path of Main Page
-        self.thisApplication.setUrl(QUrl(filePath))
+        self.thisApplication.setUrl(QUrl(filePathForEngine))
 
         # adding action when url get changed
         self.thisApplication.urlChanged.connect(self.updateUrlBar)
@@ -62,7 +74,7 @@ class MainWindow(QMainWindow):
     # method called by the home action
 
     def navigateToMain(self):
-        self.thisApplication.setUrl(QUrl(filePath))
+        self.thisApplication.setUrl(QUrl(filePathForEngine))
 
     # method called by the line edit when return key is pressed
     def navigateToUrl(self):
