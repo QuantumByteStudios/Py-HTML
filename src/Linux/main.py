@@ -1,8 +1,6 @@
 # Import tkinter and webview libraries
 from tkinter import *
-from matplotlib import widgets
 import webview
-import tkinterweb
 import platform
 import os
 import applicationUI
