@@ -4,152 +4,196 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello World App</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tic Tac Toe</title>
   <style>
     body {
-      background-color: #0F111A;
-      color: white;
+      font-family: "Arial", sans-serif;
+      overflow: hidden;
+      background-color: #11213a;
     }
 
-    .myApp {
+    section {
+      text-align: center;
+    }
+
+    .game--title {
+      font-size: 80px;
+      color: #d7a62f;
+      margin: 10px auto;
+    }
+
+    .game--container {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      width: 306px;
+      margin: 10px auto;
+      background-color: #11213a;
+      color: #04c0b2;
+    }
+
+    .cell {
+      font-family: "Permanent Marker", cursive;
+      width: 100px;
+      height: 100px;
+      box-shadow: 2px 2px 2px 2px #ecd7ba;
+      border: 2px solid #ecd7ba;
+      cursor: pointer;
+      line-height: 100px;
+      font-size: 60px;
+    }
+
+    .game--status {
+      font-size: 50px;
+      color: #d7a62f;
+      margin: 20px auto;
+    }
+
+    .game--restart {
+      background-color: #f7e4ac;
+      width: 200px;
+      height: 50px;
+      font-size: 25px;
+      color: #5586e2;
+      box-shadow: 2px 2px 2px 2px #d86c23;
+      border: 2px solid #d86c23;
+    }
+
+    #introGif {
       width: 100vw;
       height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .button-82-pushable {
-      position: relative;
-      border: none;
-      background: transparent;
-      padding: 0;
-      cursor: pointer;
-      outline-offset: 4px;
-      transition: filter 250ms;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-    }
-
-    .button-82-shadow {
+      object-fit: cover;
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 12px;
-      background: hsl(0deg 0% 0% / 0.25);
-      will-change: transform;
-      transform: translateY(2px);
-      transition:
-        transform 600ms cubic-bezier(.3, .7, .4, 1);
-    }
-
-    .button-82-edge {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 12px;
-      background: linear-gradient(to left,
-          hsl(340deg 100% 16%) 0%,
-          hsl(340deg 100% 32%) 8%,
-          hsl(340deg 100% 32%) 92%,
-          hsl(340deg 100% 16%) 100%);
-    }
-
-    .button-82-front {
-      display: block;
-      position: relative;
-      padding: 12px 27px;
-      border-radius: 12px;
-      font-size: 1.1rem;
-      color: white;
-      background: hsl(345deg 100% 47%);
-      will-change: transform;
-      transform: translateY(-4px);
-      transition:
-        transform 600ms cubic-bezier(.3, .7, .4, 1);
-    }
-
-    @media (min-width: 768px) {
-      .button-82-front {
-        font-size: 1.25rem;
-      }
-    }
-
-    .button-82-pushable:hover {
-      filter: brightness(110%);
-      -webkit-filter: brightness(110%);
-    }
-
-    .button-82-pushable:hover .button-82-front {
-      transform: translateY(-6px);
-      transition:
-        transform 250ms cubic-bezier(.3, .7, .4, 1.5);
-    }
-
-    .button-82-pushable:active .button-82-front {
-      transform: translateY(-2px);
-      transition: transform 34ms;
-    }
-
-    .button-82-pushable:hover .button-82-shadow {
-      transform: translateY(4px);
-      transition:
-        transform 250ms cubic-bezier(.3, .7, .4, 1.5);
-    }
-
-    .button-82-pushable:active .button-82-shadow {
-      transform: translateY(1px);
-      transition: transform 34ms;
-    }
-
-    .button-82-pushable:focus:not(:focus-visible) {
-      outline: none;
     }
   </style>
-
 </head>
 
 <body>
-
-  <div class="myApp">
-    <center>
-      <h1>
-        <span style="color: #82aaff;">printf</span>
-        <span style="color: #ffcb6b;">(</span>
-        <span style="color: #c3e88d;">"Hello World
-"</span>
-        <span style="color: #ffcb6b;">);</span>
-      </h1>
-      <p>This app is completely useless.<br>To exit this application, click the button below.</p>
-
-      <a href="?exit()">
-        <button class="button-82-pushable" role="button">
-          <span class="button-82-shadow"></span>
-          <span class="button-82-edge"></span>
-          <span class="button-82-front text">
-            EXIT
-          </span>
-
-        </button>
-      </a>
-
-    </center>
+  <div id="myDiv">
+    <img id="introGif" src="https://quantumbyteofficial.tech/Videos/intro.gif">
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-    crossorigin="anonymous"></script>
+  <section>
+    <h1 class="game--title">Tic Tac Toe</h1>
+    <div class="game--container">
+      <div data-cell-index="0" class="cell"></div>
+      <div data-cell-index="1" class="cell"></div>
+      <div data-cell-index="2" class="cell"></div>
+      <div data-cell-index="3" class="cell"></div>
+      <div data-cell-index="4" class="cell"></div>
+      <div data-cell-index="5" class="cell"></div>
+      <div data-cell-index="6" class="cell"></div>
+      <div data-cell-index="7" class="cell"></div>
+      <div data-cell-index="8" class="cell"></div>
+    </div>
+    <h2 style="font-size: 35px;" class="game--status"></h2>
+    <button class="game--restart">Restart Game</button>
+  </section>
 </body>
+
+<script>
+  const statusDisplay = document.querySelector('.game--status');
+
+  let gameActive = true;
+  let currentPlayer = "X";
+  let gameState = ["", "", "", "", "", "", "", "", ""];
+
+  const winningMessage = () => `Player ${currentPlayer} has won!`;
+  const drawMessage = () => `Game ended in a draw!`;
+  const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
+
+  statusDisplay.innerHTML = currentPlayerTurn();
+
+  const winningConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+
+  function handleCellPlayed(clickedCell, clickedCellIndex) {
+    gameState[clickedCellIndex] = currentPlayer;
+    clickedCell.innerHTML = currentPlayer;
+  }
+
+  function handlePlayerChange() {
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    statusDisplay.innerHTML = currentPlayerTurn();
+  }
+
+  function handleResultValidation() {
+    let roundWon = false;
+    for (let i = 0; i <= 7; i++) {
+      const winCondition = winningConditions[i];
+      let a = gameState[winCondition[0]];
+      let b = gameState[winCondition[1]];
+      let c = gameState[winCondition[2]];
+      if (a === '' || b === '' || c === '') {
+        continue;
+      }
+      if (a === b && b === c) {
+        roundWon = true;
+        break
+      }
+    }
+
+    if (roundWon) {
+      statusDisplay.innerHTML = winningMessage();
+      gameActive = false;
+      return;
+    }
+
+    let roundDraw = !gameState.includes("");
+    if (roundDraw) {
+      statusDisplay.innerHTML = drawMessage();
+      gameActive = false;
+      return;
+    }
+
+    handlePlayerChange();
+  }
+
+  function handleCellClick(clickedCellEvent) {
+    const clickedCell = clickedCellEvent.target;
+    const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
+
+    if (gameState[clickedCellIndex] !== "" || !gameActive) {
+      return;
+    }
+
+    handleCellPlayed(clickedCell, clickedCellIndex);
+    handleResultValidation();
+  }
+
+  function handleRestartGame() {
+    gameActive = true;
+    currentPlayer = "X";
+    gameState = ["", "", "", "", "", "", "", "", ""];
+    statusDisplay.innerHTML = currentPlayerTurn();
+    document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
+  }
+
+
+  document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+  document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
+
+
+
+  function removeIntro() {
+    const element = document.getElementById("myDiv");
+    element.remove();
+  }
+  setTimeout(removeIntro, 5000);
+
+</script>
 
 </html>
 
